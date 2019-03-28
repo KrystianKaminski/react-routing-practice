@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom'
+import Course from '../Course/Course'
 
 import './Courses.css';
 
@@ -11,15 +13,22 @@ class Courses extends Component {
         ]
     }
 
-    render () {
+    render() {
         return (
             <div>
                 <h1>Amazing Udemy Courses</h1>
                 <section className="Courses">
                     {
-                        this.state.courses.map( course => {
-                            return <article className="Course" key={course.id}>{course.title}</article>;
-                        } )
+                        this.state.courses.map(course => {
+                            return (
+                                <Link
+                                    to={`/${course.id}`}
+                                    key={course.id}>
+
+                                    <Course />
+                                </Link>
+                            )
+                        })
                     }
                 </section>
             </div>
@@ -27,4 +36,4 @@ class Courses extends Component {
     }
 }
 
-export default Courses;
+export default withRouter(Courses);
