@@ -7,22 +7,21 @@ class Course extends Component {
         title: ''
     }
 
-    // componentDidMount() {
-    //     this.parseQueryParams()
-    // }
+    componentDidMount() {
+        this.parseQueryParams()
+    }
 
-    // parseQueryParams = () => {
-    //     const query = new URLSearchParams(this.props.location.search)
-    //     for (let param of query.entries()) {
-    //         console.log(param)
-    //     }
-    // }
+    parseQueryParams = () => {
+        const query = new URLSearchParams(this.props.location.search)
+        for (let param of query.entries()) {
+            this.setState({ title: param[1] })
+        }
+    }
 
     render() {
-        console.log(this.props)
         return (
             <div>
-                <h1>Title: {this.props.match.params.title}</h1>
+                <h1>Title: {this.state.title}</h1>
                 <p>You selected the Course with ID:{this.props.match.params.id}</p>
             </div>
         );

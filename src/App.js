@@ -19,7 +19,7 @@ class App extends Component {
             </li>
           </ul>
         </nav>
-        <Route path="/courses/:id/:title" exact component={Course} />
+        <Route path="/courses/:id" exact component={Course} />
         <Route path="/courses" exact component={Courses} />
         <Route path="/users" exact component={Users} />
       </BrowserRouter>
