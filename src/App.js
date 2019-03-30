@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Route, Link, Switch } from 'react-router-dom'
 
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
+import Course from './containers/Course/Course';
 
 class App extends Component {
   render() {
@@ -17,8 +18,8 @@ class App extends Component {
               <Link to="/users">Users</Link>
             </li>
           </ul>
-          <Link></Link>
         </nav>
+        <Route path="/courses/:id/:title" exact component={Course} />
         <Route path="/courses" exact component={Courses} />
         <Route path="/users" exact component={Users} />
       </BrowserRouter>
